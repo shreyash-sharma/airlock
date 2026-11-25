@@ -1,0 +1,22 @@
+/* The side panel's own layout: the console fills it. The console's narrow layout (under 520 px) does the rest. */
+html, body, #root { height: 100%; margin: 0; }
+body { background: #ffffff; overflow: hidden; }
+.ext-root { height: 100%; position: relative; }
+.ext-notice {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font: 600 12px / 1.4 "Plus Jakarta Sans", system-ui, sans-serif;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
+}

@@ -1,0 +1,11 @@
+.env*
+!.env.example
+node_modules/
+*.log
+.claude/
+scripts/out/
+dist-ext/
+dist-ext-test/
+dist/
+dist-ext-espo/
+*.m4a

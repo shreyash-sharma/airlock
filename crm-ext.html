@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AIRLOCK - mock CRM page for the Chrome extension (no AIRLOCK in this page)</title>
+  </head>
+  <body>
+    <main>
+      <h1>Mock CRM page (stand-in) for the extension check</h1>
+      <p>This page does not load AIRLOCK. Only the Chrome extension, when it is loaded and this host is configured, can protect it. Synthetic data only.</p>
+      <p>
+        <button id="create-fetch">Create via fetch</button>
+        <button id="create-xhr">Create via XHR</button>
+        <button id="list-fetch">List via fetch</button>
+        <button id="clear-errors">Clear errors</button>
+      </p>
+      <h3>Page received (fetch)</h3>
+      <pre id="out-fetch"></pre>
+      <h3>Page received (XHR)</h3>
+      <pre id="out-xhr"></pre>
+      <h3>Errors the page caught</h3>
+      <pre id="errors"></pre>
+    </main>
+    <script type="module" src="/src/crm-test/ext-page.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+# A REAL open-source CRM (EspoCRM) for the AIRLOCK real-CRM demo. Local only, not the mock CRM.
+#   docker compose -f demo/espocrm/docker-compose.yml up -d
+#   open http://localhost:8080   (user: admin, password: airlock-demo-admin)
+# The credentials below are throwaway demo values for a CRM that listens on 127.0.0.1 only.
+# Do not reuse them anywhere and do not expose this CRM to a network.
+services:
+  espocrm-db:
+    image: mariadb:11
+    environment:
+      MARIADB_ROOT_PASSWORD: airlock-demo-root
+      MARIADB_DATABASE: espocrm
+      MARIADB_USER: espocrm
+      MARIADB_PASSWORD: airlock-demo-db
+    volumes:
+      - espocrm-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  espocrm:
+    image: espocrm:latest
+    environment:
+      ESPOCRM_DATABASE_HOST: espocrm-db
+      ESPOCRM_DATABASE_USER: espocrm
+      ESPOCRM_DATABASE_PASSWORD: airlock-demo-db
+      ESPOCRM_ADMIN_USERNAME: admin
+      ESPOCRM_ADMIN_PASSWORD: airlock-demo-admin
+      ESPOCRM_SITE_URL: "http://localhost:8080"
+    volumes:
+      - espocrm-data:/var/www/html/data
+      - espocrm-custom:/var/www/html/custom
+      - espocrm-custom-client:/var/www/html/client/custom
+    depends_on:
+      espocrm-db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:80"
+    restart: unless-stopped
+
+volumes:
+  espocrm-db:
+  espocrm-data:
+  espocrm-custom:
+  espocrm-custom-client:

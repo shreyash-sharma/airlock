@@ -1,0 +1,85 @@
+/*
+ * AIRLOCK console tokens (light, airy, pastel). Values follow 07-UI-SPEC.md: Stitch's pastel pairs were darkened
+ * where they failed WCAG AA. Scoped to .al-console so the host app's own styles are untouched, and so a dark
+ * theme later is a [data-theme="dark"] override block on the same element.
+ */
+.al-console {
+  --bg-0: #f8f9ff;
+  --bg-1: #ffffff;
+  --bg-2: #eff4ff;
+  --bg-3: #e5eeff;
+  --bg-4: #dce9ff;
+  --line: #e3eaf5;
+  --line-control: #76819a;
+  --text: #0b1c30;
+  --text-2: #424754;
+  --text-3: #586070;
+  --focus: #0058be;
+
+  --primary: #0058be;
+  --primary-hover: #2170e4;
+  --primary-pressed: #004395;
+  --primary-soft: #eff6ff;
+  --on-primary: #ffffff;
+
+  --ondevice: #047857;
+  --approved: #047857;
+  --ok-tint: #ecfdf5;
+  --cloud: #1d4ed8;
+  --cloud-tint: #eff6ff;
+  --masked: #6d28d9;
+  --masked-tint: #f5f3ff;
+  --blocked: #b91c1c;
+  --blocked-tint: #fef2f2;
+  --attention: #92400e;
+  --attention-tint: #fffbeb;
+  --neutral-tint: #e5eeff;
+
+  --series-protected: #2170e4;
+  --tooltip-bg: #0f172a;
+  --tooltip-text: #f8fafc;
+  --tooltip-label: #cbd5e1;
+
+  --hl-masked: #ede9fe;
+  --hl-blocked: #fee2e2;
+  --hl-attention: #fef3c7;
+  --hl-ok: #d1fae5;
+  --hl-info: #dbeafe;
+
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 32px;
+
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  --e-rest: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+  --e-float: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+
+  --fs-label: 12px;
+  --fs-body: 14px;
+  --fs-heading: 20px;
+  --fs-display: 28px;
+
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --dur-fast: 120ms;
+  --dur-slow: 240ms;
+  --ease-enter: cubic-bezier(0.24, 1, 0.32, 1);
+}
+
+@container console (min-width: 1600px) {
+  .ac-frame {
+    --fs-label: 13px;
+    --fs-body: 16px;
+    --fs-heading: 22px;
+    --fs-display: 32px;
+  }
+}

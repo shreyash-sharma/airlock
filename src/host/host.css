@@ -1,0 +1,34 @@
+/* The stand-in document assistant (the app AIRLOCK protects) beside the light console. */
+#app { display: grid; grid-template-columns: minmax(0, 1fr) minmax(460px, 1.15fr); height: 100vh; overflow: hidden; background: #eff4ff; }
+#host-root {
+  --bg-0: #f8f9ff; --bg-1: #ffffff; --bg-2: #eff4ff; --bg-3: #e5eeff;
+  --line: #e3eaf5; --line-control: #76819a;
+  --text: #0b1c30; --text-2: #424754; --text-3: #586070;
+  --blocked: #b91c1c; --attention: #92400e;
+  --sp-sm: 8px; --sp-md: 16px; --r-md: 12px; --r-lg: 20px; --r-pill: 999px;
+  --e-1: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+  --fs-body: 14px; --fs-label: 12px; --fs-heading: 18px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-width: 0; gap: var(--sp-md); padding: var(--sp-md);
+  min-height: 0; overflow: hidden; background: var(--bg-0); color: var(--text);
+}
+#airlock-root { min-height: 0; }
+@media (max-width: 1280px) { #host-root { grid-template-columns: 1fr; overflow: auto; } }
+
+.h-card { background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--e-1); padding: var(--sp-md);
+  display: flex; flex-direction: column; gap: var(--sp-sm); min-height: 0; min-width: 0; }
+.h-card h2 { margin: 0; font-size: var(--fs-heading); font-weight: 600; }
+.h-row { display: flex; gap: var(--sp-sm); flex-wrap: wrap; align-items: center; }
+.h-note { color: var(--text-3); font-size: var(--fs-label); }
+.h-error { color: var(--blocked); }
+.h-text, .h-task { width: 100%; background: var(--bg-0); color: var(--text); border: 1px solid var(--line-control); border-radius: var(--r-md); padding: var(--sp-sm) var(--sp-md);
+  font: 400 var(--fs-label) / 1.6 "IBM Plex Mono", monospace; resize: none; }
+.h-text { flex: 1; min-height: 200px; }
+.h-task { font: 400 var(--fs-body) / 1.5 "Plus Jakarta Sans", sans-serif; }
+.h-btn { height: 36px; padding: 0 var(--sp-md); border-radius: var(--r-pill); border: 1px solid var(--line-control); background: transparent; color: var(--text); font: 600 var(--fs-body) "Plus Jakarta Sans", sans-serif; cursor: pointer; }
+.h-btn:hover:not(:disabled) { background: var(--bg-3); }
+.h-btn.primary { background: var(--bg-3); }
+.h-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.h-chip { height: 28px; padding: 0 var(--sp-md); border-radius: var(--r-pill); border: 1px solid var(--line-control); background: var(--bg-2); color: var(--text-2); font: 400 var(--fs-label) "Plus Jakarta Sans", sans-serif; cursor: pointer; }
+.h-chip:hover { color: var(--text); }
+.h-answer { flex: 1; min-height: 120px; overflow: auto; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--sp-md); }
+.h-answer-text { white-space: pre-wrap; margin-top: var(--sp-sm); }

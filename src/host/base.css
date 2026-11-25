@@ -1,0 +1,6 @@
+/* Page base for the stand-in host apps (the document assistant and the mock CRM) that sit beside the AIRLOCK console. */
+:root { --focus: #0058be; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #eff4ff; color: #0b1c30; font: 400 14px / 1.5 "Plus Jakarta Sans", system-ui, sans-serif; }
+code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }

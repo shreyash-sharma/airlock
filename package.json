@@ -1,0 +1,33 @@
+{
+  "name": "airlock",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "eval": "vitest run src/eval",
+    "eval:nano": "node scripts/eval-nano.mjs",
+    "build:ext": "tsc --noEmit && node scripts/build-ext.mjs",
+    "e2e:ext": "node scripts/build-ext.mjs --out dist-ext-test --test-host \"http://127.0.0.1:5173/*\" --test-host \"https://crm.example.test/*\" && node scripts/e2e-ext.mjs"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "firebase": "^13.4.0",
+    "libphonenumber-js": "1.13.17",
+    "pdfjs-dist": "^6.5.438",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}

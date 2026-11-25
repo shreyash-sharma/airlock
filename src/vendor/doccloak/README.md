@@ -1,0 +1,1 @@
+Vendored from @doccloak/core 0.17.1 (Apache-2.0, Copyright 2026 Witold Lojek). Unmodified copies of the built ESM files plus type declarations. Only the self-contained subgraph is kept (session, restore-tokens, surrogates, types, pipeline, regex/*). See LICENSE and NOTICE in this folder and the root NOTICE file.

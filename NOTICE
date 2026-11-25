@@ -1,0 +1,23 @@
+AIRLOCK
+Copyright 2026 The AIRLOCK authors. Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes software developed by others:
+
+1. DocCloak.Core (@doccloak/core 0.17.1), Copyright 2026 Witold Lojek, Apache-2.0.
+   Vendored, with modifications noted below, in src/vendor/doccloak/ (session, restore-tokens,
+   surrogates, types, pipeline, regex rules and validators). Source: https://github.com/WLojek
+   Licence and notice: src/vendor/doccloak/LICENSE and src/vendor/doccloak/NOTICE.
+   Not included: its bundled Liberation fonts (SIL OFL 1.1) and its ONNX/PDF/DOCX modules.
+   Modifications: none to the vendored files at the time of writing.
+
+2. libphonenumber-js, MIT. Installed as an npm dependency.
+3. pdfjs-dist, Apache-2.0 (Mozilla). Installed as an npm dependency.
+4. React and React DOM, MIT. Installed as npm dependencies.
+5. Firebase JS SDK (firebase, including Firebase AI Logic and App Check), Apache-2.0. Installed as an npm dependency.
+6. IBM Plex Mono and Plus Jakarta Sans fonts via @fontsource, SIL OFL 1.1. Installed as npm dependencies
+   and bundled by the build, so no font is fetched from a third-party server at runtime.
+7. Lucide icons (a subset, copied as inline SVG in src/airlock/ui/console/icons.tsx), ISC licence;
+   portions derived from Feather icons, MIT licence. https://lucide.dev
+8. Visual design: the console's look (layout, colours, type) was generated with Google Stitch and then
+   re-implemented by hand in plain CSS. No Stitch code, images or icon font is shipped; the generated
+   screens are not part of this repository.
