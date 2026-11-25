@@ -4,8 +4,6 @@
 <img src="https://img.shields.io/badge/Firebase-AI%20Logic-DD2C00?logo=firebase&logoColor=white" alt="Firebase AI Logic">
 <img src="https://img.shields.io/badge/Gemini-Nano%20%2B%20Cloud-8E75B2?logo=googlegemini&logoColor=white" alt="Gemini">
 <img src="https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white" alt="Chrome extension">
-<img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React">
-<img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
 <img src="https://img.shields.io/badge/Licence-Apache--2.0-green" alt="Apache-2.0">
 </p>
 
