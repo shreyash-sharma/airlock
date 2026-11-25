@@ -9,3 +9,6 @@ dist-ext-test/
 dist/
 dist-ext-espo/
 *.m4a
+.firebase/
+.firebaserc
+*-debug.log

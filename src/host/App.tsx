@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cloudModel } from "../firebase.js";
+import { DemoBar } from "./DemoBar.js";
 import { readDocumentFile } from "./pdf.js";
 import { PRESET_TASKS, SAMPLE_CONTRACT, SAMPLE_CONTRACT_TITLE } from "./sample-contract.js";
 
@@ -42,6 +43,7 @@ export function App() {
 
   return (
     <>
+      <DemoBar />
       <section className="h-card" aria-label="Document">
         <h2>Document</h2>
         <div className="h-row">

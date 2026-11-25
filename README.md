@@ -144,7 +144,7 @@ npm run dev                    # http://127.0.0.1:5173
 3. Open the app, click **Ask Gemini**, review the held request in the console, and approve.
 
 ```powershell
-npm test               # 326 unit tests (core, guard, XHR, flows, authoring, hold, mock CRM, evaluation corpus, extension, console models)
+npm test               # 329 unit tests (core, guard, XHR, flows, authoring, hold, mock CRM, evaluation corpus, extension, console models)
 npm run eval           # regenerate docs/EVAL.md
 npm run eval:nano      # real Nano through the console: needs Chrome from scripts/chrome-nano.ps1 and the dev server
 node scripts/eval-quality.mjs                  # answer quality against real cloud Gemini (about 60 calls on the free tier)
