@@ -81,7 +81,7 @@ The mode is chosen by how sensitive the prompt is. Every AI call shows the SDK's
 | `PREFER_ON_DEVICE` | Authoring a profile from a **structure-only** prompt (paths, value types, classes, shape previews; never a value) | Code asserts that no captured value is in the prompt before every call. Nano answers when it can; the SDK falls back to cloud Gemini when it cannot, and the saved profile records which one wrote it |
 | `ONLY_IN_CLOUD` | The Gemini task in the demo app (`gemini-3.5-flash-lite`) | The task that needs the cloud model, after AIRLOCK has minimized and masked what it sees |
 
-Also used: `initializeDeviceModel()` from a user gesture with model status, **App Check** (debug provider) on the web app, and a JSON `responseSchema` or constraint on structured on-device calls. The model never decides at request time, its output is never executed (a profile is parsed as data, copied through a whitelist, validated and dry-run), and you approve it before it is saved.
+Also used: `initializeDeviceModel()` from a user gesture with model status, **App Check** (reCAPTCHA Enterprise on the hosted demo, the debug provider locally), and a JSON `responseSchema` or constraint on structured on-device calls. The model never decides at request time, its output is never executed (a profile is parsed as data, copied through a whitelist, validated and dry-run), and you approve it before it is saved.
 
 ## Where it lives in the code
 
