@@ -13,6 +13,12 @@
 
 AIRLOCK is a data-protection door in your browser, between you and cloud AI and SaaS apps. It finds what is sensitive on your own device with Gemini Nano, lets deterministic code decide what may leave, shows you exactly what goes, and proves what went. The apps you use stay unchanged. Built for Firebase #BuildHybridAI 2026.
 
+## Try it
+
+**Live demo: [airlock-demo.web.app](https://airlock-demo.web.app)**
+
+Best in desktop Chrome with Gemini Nano: load the sample contract, press **Ask Gemini**, read the exact outbound text and approve. Without Nano the page says so and sends nothing unless you choose keyword mode, which uses no AI. The data is synthetic; do not paste real secrets. You can optionally point it at your own Firebase project. The demo covers the document flow; the CRM flow needs the extension (below).
+
 <p align="center"><img src="docs/img/overview.png" alt="System overview" width="100%"></p>
 
 In words: web apps, documents and AI prompts in Chrome pass through AIRLOCK, which intercepts `fetch` and `XMLHttpRequest`, finds sensitive values (Gemini Nano on the device), decides with deterministic rules, protects each field, asks for approval on AI requests and records a SHA-256 and an audit entry. Cloud Gemini receives only approved, minimised text; CRM and SaaS apps receive stand-ins.
