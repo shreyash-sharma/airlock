@@ -50,11 +50,11 @@ export function DemoBar() {
       <details className="h-own">
         <summary>{own ? `Using your Firebase project: ${own.projectId}` : "Use my own Firebase (optional)"}</summary>
         <p className="h-note">
-          Paste your web app config. It stays in this browser. Your project needs Firebase AI Logic with the Gemini Developer API; if it enforces App Check, add your reCAPTCHA v3 site key for this address.
+          Paste your web app config. It stays in this browser. Your project needs Firebase AI Logic with the Gemini Developer API; if it enforces App Check, add your reCAPTCHA Enterprise site key for this address.
         </p>
         <textarea className="h-task" rows={4} value={text} onChange={(e) => setText(e.target.value)} aria-label="Firebase web config" placeholder={'apiKey: "…", projectId: "…", appId: "…"'} spellCheck={false} />
         <div className="h-row">
-          <input className="h-input" value={siteKey} onChange={(e) => setSiteKey(e.target.value)} placeholder="reCAPTCHA v3 site key (optional)" aria-label="reCAPTCHA site key" />
+          <input className="h-input" value={siteKey} onChange={(e) => setSiteKey(e.target.value)} placeholder="reCAPTCHA Enterprise site key (optional)" aria-label="reCAPTCHA site key" />
           <button className="h-btn" onClick={save}>Save and reload</button>
           {own && <button className="h-btn" onClick={remove}>Go back to the demo project</button>}
         </div>

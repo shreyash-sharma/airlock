@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
 import { getAI, getGenerativeModel, GoogleAIBackend, InferenceMode } from "firebase/ai";
 import { CLOUD_MODEL_NAME, createHybridModels } from "./firebase-models.js";
 import { loadOwnFirebase } from "./own-firebase.js";
@@ -20,12 +20,12 @@ const app = initializeApp(
 );
 
 // App Check. On this machine: the debug provider (the SDK prints a token to register in the console; never commit it).
-// Anywhere else: reCAPTCHA v3 with the site key of whichever project is in use. A visitor's project without a key runs without it.
+// Anywhere else: reCAPTCHA Enterprise with the site key of whichever project is in use. A visitor's project without a key runs without it.
 const local = ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
 const siteKey: string | undefined = own ? own.recaptchaSiteKey : env.VITE_RECAPTCHA_SITE_KEY;
 if (local) (self as unknown as { FIREBASE_APPCHECK_DEBUG_TOKEN: boolean }).FIREBASE_APPCHECK_DEBUG_TOKEN = true;
 if (local || siteKey) {
-  initializeAppCheck(app, { provider: new ReCaptchaV3Provider(siteKey || "debug-placeholder"), isTokenAutoRefreshEnabled: true });
+  initializeAppCheck(app, { provider: new ReCaptchaEnterpriseProvider(siteKey || "debug-placeholder"), isTokenAutoRefreshEnabled: true });
 }
 
 const ai = getAI(app, { backend: new GoogleAIBackend() });
