@@ -69,6 +69,11 @@ const authoringSchema = Schema.object({
 /** The generation config of the authoring model's cloud request. The structure-only release matches it exactly. */
 export const AUTHORING_GENERATION_CONFIG = { responseMimeType: "application/json", responseSchema: authoringSchema };
 
+// AIRLOCK only ever sends text on the device. The SDK's default also asks for image input, and a browser that cannot
+// open an image-capable session then refuses to open any session (seen in Chrome 158), so ask for text only.
+const TEXT = { type: "text" as const, languages: ["en"] };
+const textOnly = () => ({ expectedInputs: [TEXT], expectedOutputs: [TEXT] });
+
 export function createHybridModels(ai: () => AI) {
   let localJson: ReturnType<typeof getGenerativeModel> | undefined;
   let localClassifier: ReturnType<typeof getGenerativeModel> | undefined;
@@ -79,6 +84,7 @@ export function createHybridModels(ai: () => AI) {
       localJson ??= getGenerativeModel(ai(), {
         mode: InferenceMode.ONLY_ON_DEVICE,
         generationConfig: { responseMimeType: "application/json", responseSchema: selectionSchema },
+        onDeviceParams: { createOptions: textOnly() },
       });
       return localJson;
     },
@@ -86,7 +92,7 @@ export function createHybridModels(ai: () => AI) {
     getLocalClassifierModel() {
       localClassifier ??= getGenerativeModel(ai(), {
         mode: InferenceMode.ONLY_ON_DEVICE,
-        onDeviceParams: { promptOptions: { responseConstraint: classifierJsonSchema } },
+        onDeviceParams: { createOptions: textOnly(), promptOptions: { responseConstraint: classifierJsonSchema } },
       });
       return localClassifier;
     },
@@ -100,6 +106,7 @@ export function createHybridModels(ai: () => AI) {
     getAuthoringModel() {
       authoring ??= getGenerativeModel(ai(), {
         mode: InferenceMode.PREFER_ON_DEVICE,
+        onDeviceParams: { createOptions: textOnly() },
         inCloudParams: { model: CLOUD_MODEL_NAME, generationConfig: AUTHORING_GENERATION_CONFIG },
       });
       return authoring;
